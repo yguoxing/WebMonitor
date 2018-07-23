@@ -80,7 +80,7 @@ function initChart(option){
                 type: 'value',
                 minInterval:1,
                 axisLabel : {
-                    margin:'0',
+                    margin:'2',
                     formatter:function(value){
                         if(value >1000){
                             value = value/1000 + ' K';

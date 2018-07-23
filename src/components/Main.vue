@@ -75,6 +75,16 @@
       jumpToDetail: jumpToDetail
     }
   }
+  
+  setInterval(function(){
+    initUserOnline();
+    getLoadPageTime();
+    getInterfaceTime();
+    getBrowser();
+    getInterfaceError();
+    getStaticList();
+    getMapShow();
+  },60000)
 
   function initUserOnline(){
     userOnline().then(function(res){
@@ -104,7 +114,7 @@
           ref: 'interfaceTime'
         },
         option: {
-          title: '接口请求耗时TOP10省份',
+          title: '接口请求平均耗时TOP10省份',
           xAxis: [],
           data: []
         }
@@ -131,7 +141,7 @@
           ref: 'loadPageTime'
         },
         option: {
-          title: '页面渲染耗时TOP10省份',
+          title: '页面渲染平均耗时TOP10省份',
           xAxis: [],
           data: []
         }
@@ -199,7 +209,7 @@
         self.errorTotal = res.data.interfaceError || 0 + ' 个';
         self.averageTime = res.data.loadTime || 0 + ' 毫秒';
         self.errorUser = res.data.errUserCount || 0 + ' 个';
-        self.errorUserID = res.data.erruserName || '无错误用户';
+        self.errorUserID = res.data.errUserName || '无错误用户';
       }
     })
   }
